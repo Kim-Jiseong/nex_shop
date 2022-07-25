@@ -1,2 +1,2 @@
 # next_shop
-![image](https://user-images.githubusercontent.com/35622664/180745508-2ad94415-c1a4-436a-b85a-32bd37c4fd71.png)
+![image](https://user-images.githubusercontent.com/35622664/180745619-bf17c90f-c069-4932-be9b-96e39fb01b84.png)
