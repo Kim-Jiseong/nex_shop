@@ -2,7 +2,7 @@ from django.urls import path, include
 from rest_framework import routers
 from main import views
 
-app_name = "main"
+# app_name = "main"
 
 router = routers.DefaultRouter()
 router.register(r"products", views.ProductViewSet)
