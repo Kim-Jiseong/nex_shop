@@ -34,10 +34,10 @@ class Orders(models.Model):
         User, related_name="user_Orders", on_delete=models.CASCADE
     )
     product_id = models.ForeignKey(
-        "Products", related_name="Orders_products", on_delete=models.CASCADE
+        "Products", related_name="Orders_products", on_delete=models.SET_NULL, null=True
     )
     product_option = models.ForeignKey(
-        "Options", related_name="Orders_options", on_delete=models.CASCADE
+        "Options", related_name="Orders_options", on_delete=models.SET_NULL, null=True
     )
     quantity = models.IntegerField()
     created_at = models.DateTimeField(default=timezone.now)
