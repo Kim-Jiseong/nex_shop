@@ -1,8 +1,8 @@
 certifi==2021.10.8
 distlib==0.3.4
-filelock==3.6.0
+filelock==3.4.1
 pipenv==2022.3.28
-platformdirs==2.5.1
+platformdirs==2.4.0
 six==1.16.0
 virtualenv==20.14.0
 virtualenv-clone==0.5.7
