@@ -37,7 +37,7 @@ class Profile(models.Model):
                                 related_name='profile')
     user_pk = models.IntegerField(blank=True, default = 0)
     name = models.CharField(max_length=20)
-    email = models.EmailField(('email address'), unique=True)
+    email = models.EmailField(('email address'))
     gender = models.CharField(max_length=6, choices=(('male', '남자'),
                                                      ('female', '여자')))
     phone = models.CharField(max_length=11)

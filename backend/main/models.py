@@ -1,9 +1,9 @@
-from django.db import models
-
+from django.db import models 
+from django.contrib.auth.models import User
 # Create your models here.
 from django.utils import timezone
-
-
+from django.contrib.auth import get_user_model
+from accounts import models as accounts
 class Products(models.Model):
     # id
     name = models.CharField(max_length=200)
@@ -30,9 +30,9 @@ class Options(models.Model):
 
 
 class Orders(models.Model):
-    # user_id = models.ForeignKey(
-    #     "Products", related_name="products", on_delete=models.CASCADE
-    # )
+    user_id = models.ForeignKey(
+        User, related_name="user_Orders", on_delete=models.CASCADE
+    )
     product_id = models.ForeignKey(
         "Products", related_name="Orders_products", on_delete=models.CASCADE
     )
@@ -44,9 +44,9 @@ class Orders(models.Model):
 
 
 class QnAs(models.Model):
-    # author  = models.ForeignKey(
-    #     "User", related_name="user", on_delete=models.CASCADE
-    # )
+    author  = models.ForeignKey(
+        User, related_name="user_QnAs", on_delete=models.CASCADE
+    )
     product_id = models.ForeignKey(
         "Products", related_name="QnA_products", on_delete=models.CASCADE
     )
@@ -56,7 +56,7 @@ class QnAs(models.Model):
 
 
 class Comments(models.Model):
-    # author = models.ForeignKey("User", related_name="user", on_delete=models.CASCADE)
+    author = models.ForeignKey(User, related_name="user_Comments", on_delete=models.CASCADE)
     product_id = models.ForeignKey(
         "Products", related_name="Comments_products", on_delete=models.CASCADE
     )

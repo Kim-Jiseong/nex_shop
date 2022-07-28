@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites',
+    # 'django.contrib.sites',
     'main',
     'accounts',
     
@@ -86,7 +86,7 @@ MIDDLEWARE = [
 ]
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
-
+# AUTH_USER_MODEL = 'accounts.Users'
 ROOT_URLCONF = 'backend.urls'
 
 TEMPLATES = [
