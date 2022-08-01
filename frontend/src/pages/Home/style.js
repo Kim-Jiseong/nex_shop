@@ -9,6 +9,10 @@ export const HeaderSpacer = styled.div`
   width: 100%;
   height: 8.8rem;
 `;
+export const YB = styled.div`
+  width: 100%;
+  height: 88rem;
+`;
 
 export const SlideContainer = styled.div`
   overflow: hidden;
@@ -24,31 +28,33 @@ export const StyledSlider = styled(Slider)`
 
 export const ImageContainer = styled.div`
   /* width: 100vw; */
-  height: 100vh;
+  min-height: 20rem;
+  height: 40vh;
   object-fit: cover;
   display: flex;
   align-items: center;
   position: relative;
   justify-content: center;
-  /* overflow: hidden; */
+  overflow: hidden;
   background: rgba(18, 18, 29, 0.6);
   /* background-size: cover; */
   /* margin: 0 16px; */
 `;
 export const TextWrapper = styled.div`
   position: absolute;
-  width: 100vw;
+  width: 80%;
   z-index: 2;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 `;
 export const Title = styled.div`
   color: #f2f2f2;
   font-weight: 300;
-  font-size: 9.6rem;
+  font-size:1.8rem;
   text-align: center;
+  font-weight: 600;
 `;
 export const SubTitle = styled(Title)`
   font-weight: 300;

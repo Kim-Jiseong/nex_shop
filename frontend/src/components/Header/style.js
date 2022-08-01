@@ -3,9 +3,14 @@ import styled,{ css, keyframes }  from "styled-components";
 export const MenuContainer = styled.div`
     display: flex;
     flex-direction: row;
-    background: blue;
+    position:fixed;
+    z-index: 5;
     height: 56px;
     align-items: center;
+    transition: 0.3s;
+    background-color: ${(props) => (props.color)};
+    width: 100%;
+    max-width: 428px;
 `
 export const Logo = styled.div`
     margin-right:2rem;

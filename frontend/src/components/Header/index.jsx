@@ -16,7 +16,12 @@ function Header() {
   }, []);
 
   return (
-    <S.MenuContainer>
+    <S.MenuContainer       
+    color={
+      scrollPosition > 100
+        ? "white"
+        : "transparent"
+    }>
       <S.Logo 
       color={
         scrollPosition > 100
@@ -24,7 +29,7 @@ function Header() {
           : "white"
       }
       >SAZA</S.Logo>
-      
+
     </S.MenuContainer>
   );
 }
