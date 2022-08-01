@@ -4,17 +4,11 @@ import Slider from "react-slick";
 export const Container = styled.div`
   width: 100%;
   margin: 0 auto;
-  /* max-width: 2000px; */
-  /* min-height: 100vh; */
 `;
 export const HeaderSpacer = styled.div`
   width: 100%;
   height: 8.8rem;
 `;
-// export const Banner = styled.div`
-//     width: 100%;
-//     height: 80vh;
-// `
 
 export const SlideContainer = styled.div`
   overflow: hidden;
