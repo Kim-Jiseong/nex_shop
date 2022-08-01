@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import Home from "./pages/Home/index";
+import Home from "./pages/Home/index";
 // import Menu from "./pages/Menu/index";
 // import Store from "./pages/Store/index";
 // import Open from "./pages/Open/index";
 // import StoreMain from "./pages/StoreMain/index";
 // import Contact from "./pages/Contact/index";
-// import ScrollTop from "./components/ScrollTop/index";
+import ScrollTop from "./components/ScrollTop/index";
 // import AdminHeader from "./components/AdminHeader";
 // import Header from "./components/Header/index";
 // import Footer from "./components/Footer/index";
@@ -22,12 +22,19 @@ import { userState } from "./utils/atoms";
 
 function Router() {
   const [user, setUser] = useRecoilState(userState);
-  // const isLogin = localStorage.getItem("YkangId");
+  // const isLogin = localStorage.getItem("userLogin");
   // // 반응형 헤더를 위한 데스크탑 여부 확인
-  // const isDesktop = useMediaQuery({
-  //   query: `(min-width: 1024px)`,
-  // });
-
+  const isDesktop = useMediaQuery({
+    query: `(min-width: 1024px)`,
+  });
+  return (
+        <BrowserRouter>
+         <ScrollTop />
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+          </Routes>
+        </BrowserRouter>
+      );
   // if (!isLogin) {
   //   return (
   //     <BrowserRouter>
