@@ -43,12 +43,13 @@ const GlobalStyleWrapper = createGlobalStyle`
     font-size: 1.6rem;
     font-family: 'Noto Sans KR', sans-serif;
     color:#252525;
+    background-color: grey;
     overflow-x: hidden;
   }
 `;
 
 const Body = styled.div`
-  max-width: 1920px;
+  max-width: 428px;
   margin: 0 auto;
   background: white;
   min-height: 100vh;
