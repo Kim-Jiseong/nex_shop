@@ -7,7 +7,6 @@ const GlobalStyleWrapper = createGlobalStyle`
   }
   a {
     text-decoration: none;
-    
   }
   a:link { color:white; text-decoration: none;}
  a:visited {color:white; text-decoration: none;}
