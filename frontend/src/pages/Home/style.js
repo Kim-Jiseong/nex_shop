@@ -11,7 +11,7 @@ export const HeaderSpacer = styled.div`
 `;
 export const YB = styled.div`
   width: 100%;
-  height: 88rem;
+  height: 20rem;
 `;
 
 export const SlideContainer = styled.div`

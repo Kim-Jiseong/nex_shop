@@ -43,3 +43,7 @@ export const TextWrapper = styled.div`
 
     }
 `;
+export const YB = styled.div`
+    height:200px;
+    width:100%;
+`;
