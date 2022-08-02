@@ -10,6 +10,7 @@ router.register(r"options", views.OptionViewSet)
 router.register(r"orders", views.OrderViewSet)
 router.register(r"qnas", views.QnAViewSet)
 router.register(r"comments", views.CommentViewSet)
+router.register(r"carosel", views.CaroselViewSet)
 
 # urlpatterns = [
 #     path('', include('dj_rest_auth.urls')),

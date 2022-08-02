@@ -12,17 +12,17 @@ import Slider from "react-slick";
 import "../../components/Slick/slick.css";
 import "../../components/Slick/slick-theme.css";
 export default function Home() {
-  const items =[{
-    "carosel1_img": carosel1, 
-    "carosel1_text": "테스트1", 
-    "carosel2_img": carosel2, 
-    "carosel2_text": "테스트2", 
-    "carosel3_img": carosel3, 
-    "carosel3_text": "테스트3", 
-}]
+//   const items =[{
+//     "carosel1_img": carosel1, 
+//     "carosel1_text": "테스트1", 
+//     "carosel2_img": carosel2, 
+//     "carosel2_text": "테스트2", 
+//     "carosel3_img": carosel3, 
+//     "carosel3_text": "테스트3", 
+// }]
 
   const [products, setProducts] = useState()
-  const [carosel, setCarosel] = useState(items);
+  const [carosel, setCarosel] = useState();
 //  useEffect(()=>{
 //   axios.get(`${BASE_URL}/main/products`)
 //  .then(function (response) {
@@ -32,10 +32,17 @@ export default function Home() {
 //     console.log(error)
 //    console.log(`${BASE_URL}/main/products`)
 //  })},[]) 
-  useEffect(()=> {
-    TestApiCall()
-  }, [])
- const TestApiCall = async () => {
+
+ const GetCarosel = async () => {
+  try {
+    const response = await axios.get(`${BASE_URL}/main/carosel`)
+    setCarosel(response.data);
+    console.log("response carosel >>", response.data)
+  } catch(err) {
+    console.log("Error carosel>>", err);
+  }
+}
+ const GetProducts = async () => {
   try {
     const response = await axios.get(`${BASE_URL}/main/products`)
     setProducts(response.data);
@@ -44,6 +51,11 @@ export default function Home() {
     console.log("Error >>", err);
   }
 }
+
+useEffect(()=> {
+  GetProducts()
+  GetCarosel()
+}, [])
 // useEffect(()=> {
 
 // },[products])
@@ -85,15 +97,27 @@ export default function Home() {
       <Header/>
       <S.SlideContainer>
         <Slider {...settings}>
+        {carosel && carosel.map((item) => (
         <div>
+          <S.ImageContainer>
+            <S.TextWrapper>
+                <S.Title>{item.text}</S.Title>
+            </S.TextWrapper>
+            <S.BlackBG></S.BlackBG> 
+            <S.Image src={item.img}></S.Image>
+          </S.ImageContainer>
+        </div>
+          )
+        )}
+        {/* <div>
             <S.ImageContainer>
-                  <S.TextWrapper>
-                      <S.Title>{carosel[0]['carosel1_text']}</S.Title>
-                  </S.TextWrapper>
-                  <S.BlackBG></S.BlackBG> 
-                  <S.Image src={carosel[0]['carosel1_img']}></S.Image>
-              </S.ImageContainer>
-            </div>
+              <S.TextWrapper>
+                  <S.Title>{carosel[0]['carosel1_text']}</S.Title>
+              </S.TextWrapper>
+              <S.BlackBG></S.BlackBG> 
+              <S.Image src={carosel[0]['carosel1_img']}></S.Image>
+            </S.ImageContainer>
+        </div>
         <div>
             <S.ImageContainer>
                   <S.TextWrapper>
@@ -111,7 +135,7 @@ export default function Home() {
                   <S.BlackBG></S.BlackBG> 
                   <S.Image src={carosel[0]['carosel3_img']}></S.Image>
               </S.ImageContainer>
-            </div>
+            </div> */}
         </Slider>
       </S.SlideContainer>
         {products && products.map((product) => (
