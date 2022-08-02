@@ -68,21 +68,9 @@ REST_FRAMEWORK = {
        'rest_framework.authentication.TokenAuthentication',
        'knox.auth.TokenAuthentication',
    ),
-#    'DEFAULT_PERMISSION_CLASSES': (
-#         'rest_framework.permissions.IsAdminUser',
-#    ),
-}
-# REST_USE_JWT = True
-# JWT_AUTH_COOKIE = 'my-app-auth'
-# JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token'
 
-# SITE_ID = 1
-# ACCOUNT_UNIQUE_EMAIL = True
-# ACCOUNT_USER_MODEL_USERNAME_FIELD = None
-# ACCOUNT_USERNAME_REQUIRED = False
-# ACCOUNT_EMAIL_REQUIRED = True
-# ACCOUNT_AUTHENTICATION_METHOD = 'email'
-# ACCOUNT_EMAIL_VERIFICATION = 'none'
+}
+
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
@@ -113,19 +101,7 @@ TEMPLATES = [
         },
     },
 ]
-# S3 설정
-DEFAULT_FILE_STORAGE = 'backend.storages.MediaStorage'
-STATICFILES_STORAGE = 'backend.storages.StaticStorage'
-MEDIAFILES_LOCATION = 'media'
-STATICFILES_LOCATION = 'static'
-# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-# MEDIAFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-# AWS Access
 
-AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
-AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
 
 
 WSGI_APPLICATION = 'backend.wsgi.application'
@@ -176,10 +152,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-# STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
-# MEDIA_URL = '/media/'		# ex) /media/photo1.png
+STATICFILES_DIRS = [
+    BASE_DIR / 'static'
+]
+MEDIA_URL = '/images/'		
+MEDIA_ROOT = BASE_DIR / 'static/images'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
@@ -187,3 +167,19 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# S3 설정
+# DEFAULT_FILE_STORAGE = 'backend.storages.MediaStorage'
+# STATICFILES_STORAGE = 'backend.storages.StaticStorage'
+# MEDIAFILES_LOCATION = 'media'
+# STATICFILES_LOCATION = 'static'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# MEDIAFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+
+# AWS Access
+AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
