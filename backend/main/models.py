@@ -19,7 +19,10 @@ class Products(models.Model):
     def __str__(self):
         return self.name
 
-
+class Carosel(models.Model):
+    img = models.ImageField(upload_to='products/main')
+    text = models.TextField()
+    created_at = models.DateTimeField(default=timezone.now)
 class Options(models.Model):
     product_id = models.ForeignKey(
         "Products", related_name="Options_products", on_delete=models.CASCADE

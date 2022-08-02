@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState,  Suspense } from "react";
 import Header from '../../components/Header/index'
+import ListItem from './components/index'
 import * as S from "./style";
 import axios from "axios";
 import { BASE_URL } from '../../config/config';
@@ -117,13 +118,15 @@ export default function Home() {
       
         {/* {products &&   products.map(()=>(<li>test</li>))} */}
         {products && products.map((product) => (
-        <div>
-          <li>{product.name}</li>
-          <li>{product.price}</li>
-          <li>{product.main_img}</li>
-          <img src={product.main_img}></img>
-        </div>  
-          
+        // <div>
+        //   <li>{product.name}</li>
+        //   <li>{product.price}</li>
+        //   <li>{product.main_img}</li>
+        //   <img src={product.main_img}></img>
+        // </div>  
+          <ListItem product={product}>
+
+          </ListItem>
           )
         )}
     </S.Container>
