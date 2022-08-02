@@ -14,7 +14,9 @@ function ListItem(props) {
             <div>{props.product.info}</div>
             <div>{props.product.price}원</div>
         </S.TextWrapper>
+        
     </S.Container>
+
   );
 }
 

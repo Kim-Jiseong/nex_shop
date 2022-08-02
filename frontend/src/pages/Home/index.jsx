@@ -114,21 +114,11 @@ export default function Home() {
             </div>
         </Slider>
       </S.SlideContainer>
-
-      
-        {/* {products &&   products.map(()=>(<li>test</li>))} */}
         {products && products.map((product) => (
-        // <div>
-        //   <li>{product.name}</li>
-        //   <li>{product.price}</li>
-        //   <li>{product.main_img}</li>
-        //   <img src={product.main_img}></img>
-        // </div>  
-          <ListItem product={product}>
-
-          </ListItem>
+          <ListItem product={product}></ListItem>
           )
         )}
+      <S.YB></S.YB>
     </S.Container>
   );
 }
