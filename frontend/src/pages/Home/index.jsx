@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState,  Suspense } from "react";
 import Header from '../../components/Header/index'
 import * as S from "./style";
 import axios from "axios";
+import { BASE_URL } from '../../config/config';
 import carosel1 from "../../assets/img/carosel1.jpg"
 import carosel2 from "../../assets/img/carosel2.jpg"
 import carosel3 from "../../assets/img/carosel3.jpg"
@@ -18,8 +19,33 @@ export default function Home() {
     "carosel3_img": carosel3, 
     "carosel3_text": "테스트3", 
 }]
+
+  const [products, setProducts] = useState()
   const [carosel, setCarosel] = useState(items);
-console.log(carosel)
+//  useEffect(()=>{
+//   axios.get(`${BASE_URL}/main/products`)
+//  .then(function (response) {
+//    console.log(response)  
+//    setProducts(response.data)
+//  }).catch(function (error) {
+//     console.log(error)
+//    console.log(`${BASE_URL}/main/products`)
+//  })},[]) 
+  useEffect(()=> {
+    TestApiCall()
+  }, [])
+ const TestApiCall = async () => {
+  try {
+    const response = await axios.get(`${BASE_URL}/main/products`)
+    setProducts(response.data);
+    console.log("response >>", response.data)
+  } catch(err) {
+    console.log("Error >>", err);
+  }
+}
+// useEffect(()=> {
+
+// },[products])
 
   const settings = {
     // 아래 dots 줄 것인가
@@ -87,8 +113,19 @@ console.log(carosel)
             </div>
         </Slider>
       </S.SlideContainer>
-      <S.YB></S.YB>
-      <S.YB></S.YB>
+
+      
+        {/* {products &&   products.map(()=>(<li>test</li>))} */}
+        {products && products.map((product) => (
+        <div>
+          <li>{product.name}</li>
+          <li>{product.price}</li>
+          <li>{product.main_img}</li>
+          <img src={product.main_img}></img>
+        </div>  
+          
+          )
+        )}
     </S.Container>
   );
 }

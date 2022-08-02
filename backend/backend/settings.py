@@ -12,15 +12,23 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+import environ
+# from dotenv import load_dotenv
+# dotenv_path = join(dirname(__file__), '.env')
+# load_dotenv(dotenv_path)
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+#django-environ setting
+env = environ.Env(DEBUG=(bool, True))
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-
+environ.Env.read_env(
+    env_file=os.path.join(BASE_DIR, '.env')
+)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-7_xp!m4odnx$^1$a1vjykktx_$k47%sqlu^)%_!i*nrt20^3&%'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -46,6 +54,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'dj_rest_auth',
     'knox',
+    'storages',
 
     'allauth',
     'allauth.account',
@@ -104,6 +113,17 @@ TEMPLATES = [
         },
     },
 ]
+# S3 설정
+DEFAULT_FILE_STORAGE = 'backend.storages.MediaStorage'
+STATICFILES_STORAGE = 'backend.storages.StaticStorage'
+MEDIAFILES_LOCATION = 'media'
+STATICFILES_LOCATION = 'static'
+# AWS Access
+
+AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
+
 
 WSGI_APPLICATION = 'backend.wsgi.application'
 
