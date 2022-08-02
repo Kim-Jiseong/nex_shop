@@ -119,7 +119,8 @@ TEMPLATES = [
 # MEDIAFILES_LOCATION = 'media'
 # STATICFILES_LOCATION = 'static'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+MEDIAFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 # AWS Access
 
 AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
