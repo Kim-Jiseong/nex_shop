@@ -1,5 +1,4 @@
 import styled, { createGlobalStyle } from "styled-components";
-
 import "aos/dist/aos.css";
 const GlobalStyleWrapper = createGlobalStyle`
   *, *::before, *::after {

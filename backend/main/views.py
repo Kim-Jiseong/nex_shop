@@ -14,7 +14,7 @@ from .serializers import (
 
 
 class ProductViewSet(viewsets.ModelViewSet):
-    queryset = Products.objects.all()
+    queryset = Products.objects.all().order_by('-id')
     serializer_class = ProductSerializer
     # permission_classes = [permissions.IsAuthenticated]
 
