@@ -155,13 +155,13 @@ USE_TZ = True
 
 
 # S3 설정
-# DEFAULT_FILE_STORAGE = 'backend.storages.MediaStorage'
-# STATICFILES_STORAGE = 'backend.storages.StaticStorage'
-# MEDIAFILES_LOCATION = 'media'
-# STATICFILES_LOCATION = 'static'
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-# MEDIAFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+DEFAULT_FILE_STORAGE = 'backend.storages.MediaStorage'
+STATICFILES_STORAGE = 'backend.storages.StaticStorage'
+MEDIAFILES_LOCATION = 'media'
+STATICFILES_LOCATION = 'static'
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
 
 
 # AWS Access
@@ -175,7 +175,6 @@ STATICFILES_DIRS = [
     STATIC_DIR,
 ]
 
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 # Default primary key field type
