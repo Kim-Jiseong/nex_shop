@@ -12,6 +12,10 @@ dj-rest-auth = "*"
 django-cors-headers = "*"
 django-rest-knox = "*"
 pillow = "*"
+django-storages = "*"
+boto3 = "*"
+django-dotenv = "*"
+django-environ = "*"
 
 [dev-packages]
 
