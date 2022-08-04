@@ -11,6 +11,8 @@ router.register(r"orders", views.OrderViewSet)
 router.register(r"qnas", views.QnAViewSet)
 router.register(r"comments", views.CommentViewSet)
 router.register(r"carosel", views.CaroselViewSet)
+router.register(r"maincategory", views.MainCategoryViewSet)
+router.register(r"subcategory", views.SubCategoryViewSet)
 
 # urlpatterns = [
 #     path('', include('dj_rest_auth.urls')),
