@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Products, Options, Orders, QnAs, Comments, Carosel
+from .models import Products, Options, Orders, QnAs, Comments, Carosel, MainCategory, SubCategory
 
 
 class ProductSerializer(serializers.HyperlinkedModelSerializer):
@@ -34,4 +34,14 @@ class CommentSerializer(serializers.HyperlinkedModelSerializer):
 class CaroselSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Carosel
+        fields = "__all__"
+
+class MainCategorySerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = MainCategory
+        fields = "__all__"
+
+class SubCategorySerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = SubCategory
         fields = "__all__"

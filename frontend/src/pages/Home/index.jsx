@@ -4,22 +4,12 @@ import ListItem from './components/index'
 import * as S from "./style";
 import axios from "axios";
 import { BASE_URL } from '../../config/config';
-import carosel1 from "../../assets/img/carosel1.jpg"
-import carosel2 from "../../assets/img/carosel2.jpg"
-import carosel3 from "../../assets/img/carosel3.jpg"
 import { useRecoilState, useSetRecoilState } from "recoil";
 import Slider from "react-slick";
 import "../../components/Slick/slick.css";
 import "../../components/Slick/slick-theme.css";
 export default function Home() {
-//   const items =[{
-//     "carosel1_img": carosel1, 
-//     "carosel1_text": "테스트1", 
-//     "carosel2_img": carosel2, 
-//     "carosel2_text": "테스트2", 
-//     "carosel3_img": carosel3, 
-//     "carosel3_text": "테스트3", 
-// }]
+
 
   const [products, setProducts] = useState()
   const [carosel, setCarosel] = useState();

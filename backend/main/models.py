@@ -12,8 +12,12 @@ class Products(models.Model):
     info = models.TextField()
     main_img = models.ImageField(upload_to='products/main')
     sub_img = models.ImageField(upload_to='products/sub')
-    category1 = models.CharField(max_length=200)
-    catergory2 = models.CharField(max_length=200)
+    category1 = models.ForeignKey(
+        "MainCategory", related_name="MainCategory", on_delete=models.SET_NULL, null=True
+    )
+    catergory2 = models.ForeignKey(
+        "SubCategory", related_name="SubCategory", on_delete=models.SET_NULL, null=True
+    )
     created_at = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
@@ -22,6 +26,17 @@ class Products(models.Model):
 class Carosel(models.Model):
     img = models.ImageField(upload_to='carosel')
     text = models.TextField()
+    created_at = models.DateTimeField(default=timezone.now)
+    def __str__(self):
+        return self.text
+
+class MainCategory(models.Model):
+    mainCategory = models.TextField()
+    created_at = models.DateTimeField(default=timezone.now)
+    def __str__(self):
+        return self.text
+class SubCategory(models.Model):
+    subCategory = models.TextField()
     created_at = models.DateTimeField(default=timezone.now)
     def __str__(self):
         return self.text
@@ -51,7 +66,7 @@ class Orders(models.Model):
 
 class QnAs(models.Model):
     author  = models.ForeignKey(
-        User, related_name="user_QnAs", on_delete=models.CASCADE
+        User, related_name="user_QnAs", on_delete=models.SET_NULL, null=True
     )
     product_id = models.ForeignKey(
         "Products", related_name="QnA_products", on_delete=models.CASCADE
@@ -62,7 +77,7 @@ class QnAs(models.Model):
 
 
 class Comments(models.Model):
-    author = models.ForeignKey(User, related_name="user_Comments", on_delete=models.CASCADE)
+    author = models.ForeignKey(User, related_name="user_Comments", on_delete=models.SET_NULL, null=True)
     product_id = models.ForeignKey(
         "Products", related_name="Comments_products", on_delete=models.CASCADE
     )
