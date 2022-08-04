@@ -276,3 +276,38 @@ export const More = styled.div`
   color: #252525;
   cursor: pointer;
 `;
+export const CategoryWrapper = styled.div`
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  overflow-x:auto;
+  white-space: nowrap;
+  margin-top: 10px;
+  padding: 10px 0 10px 0;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+}
+`;
+export const Category = styled.div`
+  padding: 10px;
+  border-radius: 100px;
+  border: 1px solid #eee;
+  display: flex;
+  font-size: 1.4rem;
+  justify-content: center;
+  align-items: center;
+  /* box-shadow: 1px 1px 1px 1px #eee; */
+  cursor: pointer;
+  &:hover{
+    background-color: #252525;
+    color: white;
+  }
+  & + & {
+    margin-left: 8px;
+  }
+
+`;

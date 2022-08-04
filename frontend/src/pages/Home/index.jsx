@@ -12,6 +12,7 @@ export default function Home() {
 
 
   const [products, setProducts] = useState()
+  const [category, setCategory] = useState()
   const [carosel, setCarosel] = useState();
 //  useEffect(()=>{
 //   axios.get(`${BASE_URL}/main/products`)
@@ -23,6 +24,15 @@ export default function Home() {
 //    console.log(`${BASE_URL}/main/products`)
 //  })},[]) 
 
+ const GetCategory = async () => {
+  try {
+    const response = await axios.get(`${BASE_URL}/main/maincategory`)
+    setCategory(response.data);
+    console.log("response category >>", response.data)
+  } catch(err) {
+    console.log("Error category >>", err);
+  }
+}
  const GetCarosel = async () => {
   try {
     const response = await axios.get(`${BASE_URL}/main/carosel`)
@@ -45,6 +55,7 @@ export default function Home() {
 useEffect(()=> {
   GetProducts()
   GetCarosel()
+  GetCategory()
 }, [])
 // useEffect(()=> {
 
@@ -99,6 +110,8 @@ useEffect(()=> {
         </div>
           )
         )}
+
+
         {/* <div>
             <S.ImageContainer>
               <S.TextWrapper>
@@ -128,6 +141,13 @@ useEffect(()=> {
             </div> */}
         </Slider>
       </S.SlideContainer>
+      <S.CategoryWrapper>
+          {category && category.map((item) => (
+            <S.Category>
+              {item.mainCategory}
+            </S.Category>
+          ))}
+        </S.CategoryWrapper>
         {products && products.map((product) => (
           <ListItem product={product}></ListItem>
           )

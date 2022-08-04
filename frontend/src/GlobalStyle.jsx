@@ -44,6 +44,10 @@ const GlobalStyleWrapper = createGlobalStyle`
     color:#252525;
     background-color: grey;
     overflow-x: hidden;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none
   }
 `;
 
