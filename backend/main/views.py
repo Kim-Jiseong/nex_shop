@@ -3,7 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 # from rest_framework import permissions
 from rest_framework import viewsets
-from .models import Products, Options, Orders, QnAs, Comments, Carosel
+from .models import Products, Options, Orders, QnAs, Comments, Carosel, MainCategory, SubCategory
 from .serializers import (
     ProductSerializer,
     OptionSerializer,
@@ -11,6 +11,8 @@ from .serializers import (
     QnASerializer,
     CommentSerializer,
     CaroselSerializer,
+    MainCategorySerializer,
+    SubCategorySerializer,
 )
 
 
@@ -41,4 +43,12 @@ class CommentViewSet(viewsets.ModelViewSet):
 class CaroselViewSet(viewsets.ModelViewSet):
     queryset = Carosel.objects.all()
     serializer_class = CaroselSerializer
+
+class MainCategoryViewSet(viewsets.ModelViewSet):
+    queryset = MainCategory.objects.all()
+    serializer_class = MainCategorySerializer
+
+class SubCategoryViewSet(viewsets.ModelViewSet):
+    queryset = SubCategory.objects.all()
+    serializer_class = SubCategorySerializer
 
