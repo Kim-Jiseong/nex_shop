@@ -34,12 +34,12 @@ class MainCategory(models.Model):
     mainCategory = models.TextField()
     created_at = models.DateTimeField(default=timezone.now)
     def __str__(self):
-        return self.text
+        return self.mainCategory
 class SubCategory(models.Model):
     subCategory = models.TextField()
     created_at = models.DateTimeField(default=timezone.now)
     def __str__(self):
-        return self.text
+        return self.subCategory
 
 class Options(models.Model):
     product_id = models.ForeignKey(
